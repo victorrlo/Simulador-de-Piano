@@ -2,6 +2,7 @@ const pianoKeys = document.querySelectorAll(".piano-keys .key");
 let mapedKeys = [];
 let audio = new Audio("src/tunes/StatusRecovery.wav");
 const volumeSlider = document.querySelector(".volume-slider input");
+const keysCheck = document.querySelector(".keys-check input");
 
 const playTune = (key) => {
     audio.play();
@@ -30,4 +31,9 @@ const handleVolume = (e) => {
     console.log(e.target.value);
 }
 
+const showHideKeys = () =>{
+    pianoKeys.forEach(key=>key.classList.toggle("hide"));
+}
+
 volumeSlider.addEventListener("input", handleVolume);
+keysCheck.addEventListener("click", showHideKeys);
